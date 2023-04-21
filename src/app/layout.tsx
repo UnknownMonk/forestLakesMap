@@ -23,8 +23,10 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <Image alt="main page image" src="/ForestLakesParks.png" fill />
-        {children}
+        <main className="bg-park_bg_image w-full h-full bg-no-repeat bg-cover bg-center bg-fixed">
+          {/* <Image alt="main page image" src="/ForestLakesParks.png" fill /> */}
+          {children}
+        </main>
       </body>
     </html>
   );
