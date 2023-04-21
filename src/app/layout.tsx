@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 
 import './globals.css';
 
@@ -21,7 +22,10 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <Image alt="main page image" src="/ForestLakesParks.png" fill />
+        {children}
+      </body>
     </html>
   );
 }

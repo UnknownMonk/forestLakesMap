@@ -1,3 +1,11 @@
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '4mb',
+    },
+  },
+};
+
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import {

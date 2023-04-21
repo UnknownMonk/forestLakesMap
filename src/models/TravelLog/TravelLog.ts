@@ -13,7 +13,7 @@ const errors = {
 const baseValidation = z.object({
   title: z.string().trim().min(1, errors.title),
   description: z.string().trim().min(1, errors.description),
-  image: z.string().url(errors.url),
+  image: z.coerce.string(),
   danger: z.coerce.number().min(0).max(10).default(0),
   latitude: z.coerce.number().min(-90).max(90),
   longitude: z.coerce.number().min(-180).max(180),
@@ -57,7 +57,7 @@ export const TravelLogProperties = TravelLogRequest.keyof().Enum;
 export type TravelLogProperty = keyof typeof TravelLogProperties;
 export type TravelLogPropertyWithoutLocation = Exclude<
   TravelLogProperty,
-  'latitude' | 'longitude'
+  'latitude' | 'longitude' | 'image'
 >;
 
 export type TravelLogRequest = z.infer<typeof TravelLogRequest>;

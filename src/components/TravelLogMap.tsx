@@ -1,7 +1,6 @@
 'use client';
 
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import Image from 'next/image';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -111,16 +110,14 @@ export default function TravelLogMap({ logs }: TravelLogMapProps) {
           position={[log.latitude, log.longitude]}
         >
           <Popup offset={[0, -10]}>
-            <p className="text-lg font-bold">{log.title}</p>
-            <div className="flex justify-center items-center">
-              <picture>
-                <img alt={log.title} src={log.image} className="w-96" />
-              </picture>
-            </div>
+            <p className=" w-[350px] text-lg font-bold">{log.title}</p>
             <p>{log.description}</p>
             <p className="text-sm italic">
               {new Date(log.visitDate).toLocaleDateString()}
             </p>
+            <div className="flex justify-center items-center">
+              <img className="h-5/6 w-5/6" alt={log.title} src={log.image} />
+            </div>
           </Popup>
         </Marker>
       ))}
