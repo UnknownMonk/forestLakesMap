@@ -83,7 +83,7 @@ export default function FireEmailForm() {
           </div>
         </form>
       </div>
-      {spin ? <LoadingSpinner /> : <></>};
+      {spin ? <LoadingSpinner /> : <></>}
     </div>
   );
 }
