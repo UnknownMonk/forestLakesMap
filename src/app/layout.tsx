@@ -21,7 +21,13 @@ export default function RootLayout({
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
-      <head />
+
+      <head>
+        <meta
+          property="og:image:url"
+          content="https://www.greenalgaebusiness.website/"
+        />
+      </head>
       <body>
         <main className="bg-park_bg_image w-full h-full bg-no-repeat bg-cover bg-center bg-fixed">
           {children}
