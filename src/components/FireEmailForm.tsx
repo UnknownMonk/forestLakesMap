@@ -36,7 +36,7 @@ export default function FireEmailForm() {
     router.push('/map');
   };
   return (
-    <div className="border-white border-8 text-center rounded-lg z-10 w-[60%] h-[200px] bg-green-800 opacity-80 absolute top-[4px] left-64">
+    <div className="border-white border-8 text-center rounded-lg z-10 w-[60%] h-[30%] bg-green-800 opacity-80  top-[4px] left-64">
       <h1 className=" mt-3 text-white text-3xl bold">
         Welcome To Forest Lakes Park Activity Tracker
       </h1>
