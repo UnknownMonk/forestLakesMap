@@ -5,7 +5,13 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 import type { TravelLogEntryWithId } from '@/models/TravelLog/TravelLog';
-import { useCallback, useContext, useLayoutEffect } from 'react';
+import {
+  useCallback,
+  useContext,
+  useLayoutEffect,
+  useEffect,
+  useState,
+} from 'react';
 import TravelLogContext from '@/TravelLogContext';
 import {
   TravelLogActionType,
@@ -54,12 +60,17 @@ const InitMap = ({ logs, onMapClick, dispatch }: InitMapProps) => {
 
       map.on('click', onMapClick);
       // TODO: less hacky way...
-    }, 200);
+    }, 100);
   }, [map, logs, onMapClick, dispatch]);
   return null;
 };
 
 export default function TravelLogMap({ logs }: TravelLogMapProps) {
+  const [stuff, setStuff] = useState({});
+  console.log(stuff, 'stuff-----------------------------------');
+  useEffect(() => {
+    setStuff(logs);
+  }, [logs]);
   const { state, dispatch } = useContext(TravelLogContext);
   const onMapClick = useCallback(
     (e: L.LeafletMouseEvent) => {
