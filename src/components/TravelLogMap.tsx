@@ -66,11 +66,30 @@ const InitMap = ({ logs, onMapClick, dispatch }: InitMapProps) => {
 };
 
 export default function TravelLogMap({ logs }: TravelLogMapProps) {
-  const [stuff, setStuff] = useState({});
+  type Log = {
+    _id: number;
+    title: string;
+    description: string;
+    latitude: number;
+    longitude: number;
+    visitDate: string;
+    image: string;
+  };
+
+  const [stuff, setStuff] = useState<Log[] | undefined>();
   console.log(stuff, 'stuff-----------------------------------');
   useEffect(() => {
-    setStuff(logs);
-  }, [logs]);
+    (async () => {
+      try {
+        const results = await fetch('/api/logs').then((response) =>
+          response.json()
+        );
+        setStuff(results);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
   const { state, dispatch } = useContext(TravelLogContext);
   const onMapClick = useCallback(
     (e: L.LeafletMouseEvent) => {
@@ -115,7 +134,7 @@ export default function TravelLogMap({ logs }: TravelLogMapProps) {
           position={state.currentMarkerLocation}
         ></Marker>
       )}
-      {logs.map((log) => (
+      {stuff?.map((log: any) => (
         <Marker
           key={log._id.toString()}
           position={[log.latitude, log.longitude]}
