@@ -10,11 +10,13 @@ interface FileInfo {
 
 type OnDoneCallback = (files: FileInfo[] | FileInfo) => void;
 
-export default function FileBase64({ onDone }: { onDone: OnDoneCallback }) {
-  const [allFiles, setAllFiles] = useState<FileInfo[]>([]);
-  console.log(allFiles, 'all files');
-  const multiple = false;
-
+export default function FileBase64({
+  onDone,
+  multiple,
+}: {
+  onDone: OnDoneCallback;
+  multiple: boolean;
+}) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
 
@@ -52,7 +54,6 @@ export default function FileBase64({ onDone }: { onDone: OnDoneCallback }) {
           file,
         };
 
-        setAllFiles((prevFiles) => [...prevFiles, fileInfo]);
         resolve(fileInfo);
       };
 
@@ -60,5 +61,5 @@ export default function FileBase64({ onDone }: { onDone: OnDoneCallback }) {
     });
   };
 
-  return <input type="file" onChange={handleChange} multiple={multiple} />;
+  return <input type="file" onChange={handleChange} />;
 }

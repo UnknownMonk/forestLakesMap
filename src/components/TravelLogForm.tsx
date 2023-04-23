@@ -223,7 +223,7 @@ export default function TravelLogForm({
           <label className="label">
             <span className="label-text capitalize">Add Image</span>
           </label>
-          <FileBase64 onDone={(files) => getFiles(files)} />
+          <FileBase64 multiple={false} onDone={(files) => getFiles(files)} />
         </div>
         <div>
           <label className="cursor-pointer label"></label>
