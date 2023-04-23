@@ -60,7 +60,7 @@ const InitMap = ({ logs, onMapClick, dispatch }: InitMapProps) => {
 
       map.on('click', onMapClick);
       // TODO: less hacky way...
-    }, 100);
+    }, 400);
   }, [map, logs, onMapClick, dispatch]);
   return null;
 };
@@ -89,7 +89,7 @@ export default function TravelLogMap({ logs }: TravelLogMapProps) {
         console.log(error);
       }
     })();
-  }, []);
+  }, [logs]);
   const { state, dispatch } = useContext(TravelLogContext);
   const onMapClick = useCallback(
     (e: L.LeafletMouseEvent) => {
