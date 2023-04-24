@@ -77,7 +77,6 @@ export default function TravelLogMap({ logs }: TravelLogMapProps) {
   };
 
   const [stuff, setStuff] = useState<Log[] | undefined>();
-  console.log(stuff, 'stuff-----------------------------------');
   useEffect(() => {
     (async () => {
       try {
