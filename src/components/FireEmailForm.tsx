@@ -49,7 +49,7 @@ export default function FireEmailForm() {
           Proceed To Map
         </Link> */}
           <button
-            className=" mt-1 bg-green-600 hover:text-green-700 hover:bg-green-300 duration-300 text-white shadow p-1 rounded-r"
+            className=" rounded-md mt-1 bg-green-600 hover:text-green-700 hover:bg-green-300 duration-300 text-white shadow p-1  "
             onClick={() => {
               setSpin(true);
               sendRout();
