@@ -121,21 +121,23 @@ export default function TravelLogForm({
 
       if (response.ok) {
         if (checkBox) {
-          const repEmailList = await fetch('/api/emailList', {
-            method: 'GET',
-            headers: {
-              'content-type': 'application/json',
-            },
-          });
-          let fireEmailUser = await repEmailList.json();
+          const [repEmailList, repTextList] = await Promise.all([
+            fetch('/api/emailList', {
+              method: 'GET',
+              headers: {
+                'content-type': 'application/json',
+              },
+            }),
+            fetch('/api/textList', {
+              method: 'GET',
+              headers: {
+                'content-type': 'application/json',
+              },
+            }),
+          ]);
 
-          const repTextList = await fetch('/api/textList', {
-            method: 'GET',
-            headers: {
-              'content-type': 'application/json',
-            },
-          });
-          let fireTextUser = await repTextList.json();
+          const fireEmailUser = await repEmailList.json();
+          const fireTextUser = await repTextList.json();
           try {
             const insertEmail = fireEmailUser.data;
             for (let i = 0; i < insertEmail.length; i++) {
