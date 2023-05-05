@@ -30,7 +30,7 @@ export default function RootLayout({
       <body>
         <main className="bg-park_bg_image w-full h-full bg-no-repeat bg-cover bg-center bg-fixed">
           {children}
-          <footer className=" flex justify-center text-center fixed bottom-0 left-[45%]">
+          <footer className=" flex justify-center text-center fixed bottom-0 left-[40%]">
             <a className="text-lg" href="https://www.pinecode.site/">
               Powered By <span className="font-bold">Pine</span>Code
             </a>
