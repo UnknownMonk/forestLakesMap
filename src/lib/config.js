@@ -15,7 +15,7 @@ const SMTP_TRANSPORT = {
   secure: true,
   auth: {
     user: 'smodcartoon@gmail.com',
-    pass: 'jjsgofpjafoqnyhr',
+    pass: process.env.SMTP_SERVER,
   },
 };
 

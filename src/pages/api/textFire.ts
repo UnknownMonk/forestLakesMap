@@ -28,7 +28,7 @@ function textRequestHandler(
   let carrierKey = null;
   if (carrier) {
     carrierKey = carrier.toLowerCase();
-    // const carriers: { [key: string]: string[] } = {};
+    const carriers: { [key: string]: string[] } = {};
     if (carriers[carrierKey] == null) {
       res.send({
         success: false,
@@ -62,7 +62,7 @@ function textRequestHandler(
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<{ success: boolean; carriers?: string[]; message?: any }>
 ) {
   if (req.method === 'POST') {
     if (
@@ -82,6 +82,6 @@ export default function handler(
     // Process a POST request
   } else {
     // Handle any other HTTP method
-    res.status(200).json({ name: 'John Doe' });
+    // res.status(200).json({ name: 'John Doe' });
   }
 }

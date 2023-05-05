@@ -137,22 +137,21 @@ export default function TravelLogForm({
           });
           let fireTextUser = await repTextList.json();
           try {
-            // const insertEmail = fireEmailUser.data;
-            // for (let i = 0; i < insertEmail.length; i++) {
-            //   const value = insertEmail[i];
+            const insertEmail = fireEmailUser.data;
+            for (let i = 0; i < insertEmail.length; i++) {
+              const value = insertEmail[i];
 
-            //   await fetch('/api/fireEmail', {
-            //     method: 'Post',
-            //     headers: {
-            //       'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(value),
-            //   });
-            // }
+              await fetch('/api/fireEmail', {
+                method: 'Post',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(value),
+              });
+            }
             const insertText = fireTextUser.data;
             for (let i = 0; i < insertText.length; i++) {
               const value = insertText[i].number;
-              console.log(value);
 
               const resText = await fetch('/api/textFire', {
                 method: 'post',
@@ -163,9 +162,7 @@ export default function TravelLogForm({
                     '🔥🔥🔥Forest Lakes Park Resident!🔥🔥🔥 A Fire has been reported in the area please visit the Forest Lakes Park Activity Tracker Website @ https://forest-lakes-map.vercel.app',
                 }),
               });
-              const text = await resText.json();
-
-              console.log(text);
+              // const text = await resText.json();
             }
           } catch (error) {
             console.log(error);
