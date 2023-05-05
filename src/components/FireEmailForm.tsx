@@ -60,11 +60,11 @@ export default function FireEmailForm() {
   };
   return (
     <div className="w-full h-full flex flex-col justify-center items-center ">
-      <div className=" pb-4 mb-5 marker:border-white border-8 text-center rounded-lg z-10 w-[60%] h-[30%] bg-green-800 opacity-80  top-[4px] left-64">
-        <h1 className=" mt-3 text-white text-3xl bold">
+      <div className=" pb-4 mb-5 marker:border-white border-8 text-center rounded-lg z-10 w-[60%] h-[30%] max-[700px]:w-[100%] max-[700px]:h-[50%] bg-green-800 opacity-80  top-[4px] left-64">
+        <h1 className=" mt-3 text-white text-3xl bold md:text-lg sm:text-md">
           Welcome To Forest Lakes Park Activity Tracker
         </h1>
-        <p className="text-white text-lg ">
+        <p className="text-white sm:text-md md:text-lg lg:text-xl  ">
           (Want to be notified in the event of a fire enter your email or cell
           phone number below)
         </p>
