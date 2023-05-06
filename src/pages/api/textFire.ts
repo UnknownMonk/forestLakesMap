@@ -82,6 +82,6 @@ export default function handler(
     // Process a POST request
   } else {
     // Handle any other HTTP method
-    // res.status(200).json({ name: 'John Doe' });
+    res.send({ name: 'John Doe' });
   }
 }
