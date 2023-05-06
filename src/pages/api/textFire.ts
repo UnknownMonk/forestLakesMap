@@ -82,6 +82,6 @@ export default function handler(
     // Process a POST request
   } else {
     // Handle any other HTTP method
-    res.send({ name: 'John Doe' });
+    res.send({ success: false, message: 'There is no Fox here?.' });
   }
 }
